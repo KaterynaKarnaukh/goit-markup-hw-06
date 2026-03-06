@@ -1,0 +1,80 @@
+/* ================================================
+   FOCUS-VISIBLE — клавиатурная навигация
+   ================================================ */
+
+/* Убираем стандартный outline везде */
+*:focus {
+  outline: none;
+}
+
+/* Показываем красивый outline только при навигации с клавиатуры */
+*:focus-visible {
+  outline: 2px solid #4d5ae5;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Кнопки и ссылки */
+.main-button:focus-visible,
+.modal-button:focus-visible,
+.footer-submit-btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* Навигационные ссылки */
+.nav-list .link:focus-visible,
+.mobile-menu-text:focus-visible,
+.mobile-address:focus-visible,
+.address:focus-visible {
+  outline: 2px solid #4d5ae5;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Лого */
+.header-logo:focus-visible,
+.footer-logo:focus-visible {
+  outline: 2px solid #4d5ae5;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Иконки соцсетей */
+.social-icon:focus-visible,
+.footer-social-icon:focus-visible {
+  outline: 2px solid #4d5ae5;
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+
+/* Кнопки бургер / закрытие */
+.burger-btm:focus-visible,
+.mobile-close-btn:focus-visible,
+.modal-close-btn:focus-visible {
+  outline: 2px solid #4d5ae5;
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+
+/* Поля формы */
+.modal-input:focus-visible,
+.modal-textarea:focus-visible,
+.modal-input-footer:focus-visible {
+  outline: 2px solid #4d5ae5;
+  outline-offset: 0;
+}
+
+/* Чекбокс */
+.modal-checkbox:focus-visible + .modal-label-checkbox .modal-label-box {
+  outline: 2px solid #4d5ae5;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Ссылка Privacy Policy */
+.modal-text:focus-visible {
+  outline: 2px solid #4d5ae5;
+  outline-offset: 2px;
+  border-radius: 2px;
+}

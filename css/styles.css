@@ -412,10 +412,6 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) }
       padding-bottom: 96px;
     }
 
-        .main-section-feature .container {
-          /* background: #fff, rgba(0, 0, 0, 0.2);  */
-}
-
        .visually-hidden {position: absolute;
         width: 1px;
         height: 1px;
@@ -617,10 +613,6 @@ box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08);}
         padding-top: 96px;
         padding-bottom: 96px;
     }
-      .footer .container {
-        /* display: flex; */
-        /* align-items: baseline */
-        }
 
 .footer-up { display: flex;
 flex-direction: column;
@@ -1140,19 +1132,19 @@ box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
     .main-section-team {
       padding-top: 120px;
       padding-bottom: 120px;
-      max-width: 1440px;
     }
 
     .list {display: flex;
       flex-direction: row;
       flex-wrap: nowrap;}
 
+      
+
     /*-------секция 4------*/
 
    .main-portfolio {
     padding-top: 120px;
      padding-bottom: 120px;
-    max-width: 1440px;
     min-width: 1158px;
          }
 

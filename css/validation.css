@@ -1,0 +1,77 @@
+/* ================================================
+   VALIDATION STYLES
+   Добавь: <link rel="stylesheet" href="./css/validation.css" />
+   ================================================ */
+
+/* Поле с ошибкой */
+.modal-input.input-error,
+.modal-textarea.input-error,
+.modal-input-footer.input-error {
+  border-color: #e74c3c;
+}
+
+/* Иконка краснеет вместе с полем */
+.modal-input.input-error + .input-icon {
+  stroke: #e74c3c;
+  fill: #e74c3c;
+}
+
+/* Чекбокс с ошибкой */
+.modal-checkbox.input-error + .modal-label-checkbox .modal-label-box {
+  border-color: #e74c3c;
+}
+
+/* Текст ошибки */
+.field-error {
+  display: none;
+  margin-top: 4px;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+  color: #e74c3c;
+}
+
+/* ================================================
+   SUCCESS TOAST
+   ================================================ */
+
+.success-toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 1000;
+
+  background-color: #2e2f42;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(46, 47, 66, 0.25);
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.success-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media screen and (max-width: 767px) {
+  .success-toast {
+    bottom: 20px;
+    font-size: 13px;
+    padding: 10px 18px;
+    white-space: normal;
+    text-align: center;
+    max-width: calc(100% - 40px);
+  }
+}

@@ -1,0 +1,8 @@
+/* Плавный скролл */
+html {
+  scroll-behavior: smooth;
+}
+
+.main-section {
+  content-visibility: auto; /* браузер приоритизирует рендер */
+}

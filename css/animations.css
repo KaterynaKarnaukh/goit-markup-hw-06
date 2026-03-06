@@ -1,0 +1,165 @@
+/* ================================================
+   SCROLL ANIMATIONS
+   ================================================ */
+
+/* --- Базовое состояние до появления --- */
+.animate-item {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --- Состояние после появления --- */
+.animate-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Stagger: каждый следующий элемент чуть позже --- */
+.animate-item:nth-child(1) { transition-delay: 0ms; }
+.animate-item:nth-child(2) { transition-delay: 100ms; }
+.animate-item:nth-child(3) { transition-delay: 200ms; }
+.animate-item:nth-child(4) { transition-delay: 300ms; }
+.animate-item:nth-child(5) { transition-delay: 120ms; }
+.animate-item:nth-child(6) { transition-delay: 240ms; }
+
+/* Уважаем prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ================================================
+   SKELETON LOADER — портфолио карточки
+   ================================================ */
+
+.skeleton-card .taste-portfolio-img {
+  display: block;
+}
+
+/* Пока картинка не загрузилась — показываем shimmer */
+.skeleton-card .image-container::before {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #e8e8e8 25%,
+    #f5f5f5 50%,
+    #e8e8e8 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s infinite;
+  z-index: 1;
+  border-radius: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Убираем shimmer когда картинка загрузилась */
+.skeleton-card.loaded .image-container::before {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes skeleton-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Skeleton для текстового блока (до загрузки) */
+.skeleton-card .applications::before {
+  content: '';
+  display: block;
+  height: 16px;
+  width: 60%;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f0f0f0 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s infinite;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.skeleton-card.loaded .applications::before {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-card .image-container::before,
+  .skeleton-card .applications::before {
+    animation: none;
+  }
+}
+
+/* ================================================
+   SCROLL TO TOP BUTTON
+   ================================================ */
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 99;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  background-color: #4d5ae5;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transform: translateY(16px) scale(0.85);
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.25s ease;
+
+  box-shadow: 0 4px 16px rgba(77, 90, 229, 0.35);
+}
+
+/* hidden attr убирается через JS, потом плавно появляется */
+.scroll-top-btn:not([hidden]) {
+  pointer-events: auto;
+}
+
+.scroll-top-btn.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-top-btn:hover,
+.scroll-top-btn:focus-visible {
+  background-color: #404bbf;
+  transform: translateY(-2px) scale(1.05);
+}
+
+.scroll-top-btn:active {
+  transform: scale(0.95);
+}
+
+@media screen and (max-width: 767px) {
+  .scroll-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.mobile-menu {
+  z-index: 999;
+}
